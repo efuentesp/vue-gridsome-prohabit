@@ -1,54 +1,43 @@
 <template>
   <Layout>
-    <div class="bg-indigo-900 text-center py-4 lg:px-4 mt-10">
-      <div
-        class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
-        role="alert"
-      >
-        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">New</span>
-        <span
-          class="font-semibold mr-2 text-left flex-auto"
-        >Get the coolest t-shirts from our brand new store</span>
-        <svg
-          class="fill-current opacity-75 h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path
-            d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"
-          />
-        </svg>
+    <h1>Nuevos Desarrollos Habitacionales</h1>
+    <div class="flex">
+      <div>
+        <img src="http://prohabit.netlify.com/images/residencial-del-bosque/conjunto.652x480.jpg" alt="">
+      </div>
+      <div>
+        <h2>Residencial del Bosque</h2>
+        <h3>Carretera al Moral No 111, Col. El Moral</h3>
+        <span>Desde $384,000 hasta $414,000</span>
+        <p>Residencial Del Bosque está ubicado a 10 minutos del zócalo de San Martin Texmelucan, a solo unos metros del libramiento (Carretera Federal - Carretera al Verde). Residencial del Bosque cuenta con 60 departamentos distribuidos en 10 edificios de 3 niveles. Las plantas bajas cuentan con jardín y las plantas altas con espacio de azotea. Los departamentos cuentan con sala-comedor, cocina, baño y 2 recamaras. Residencial del Bosque cuenta área de estacionamiento común.</p>
+        <div class="flex">
+          <div class="flex">
+            <span>55</span>
+            <span>2</span>
+            <span>1</span>
+            <span>1</span>
+          </div>
+          <div class="flex">
+            <button>Más información</button>
+          </div>
+        </div>
+        <div class="flex">
+          <span>Venta</span>
+          <span>Departamentos Nuevos</span>
+        </div>
       </div>
     </div>
-
-    <div
-      class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 mt-10"
-      role="alert"
-    >
-      <p class="font-bold">Informational message</p>
-      <p class="text-sm">Some additional text to explain said message.</p>
-    </div>
-
-    <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10"
-    >Button</button>
-
-    <button
-      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow ml-3"
-    >Button</button>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: "Hello, world!"
+    title: "ProHabit"
   }
 };
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
-}
+
 </style>
