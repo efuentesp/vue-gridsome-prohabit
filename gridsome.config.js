@@ -18,6 +18,13 @@ module.exports = {
         environment: process.env.CONTENTFUL_ENVIRONMENT,
         typename: "Contentful"
       }
+    },    {
+    use: '@gridsome/source-filesystem',
+      options: {
+        path: 'blog/**/*.md',
+        typeName: 'Post',
+        route: '/blog/:slug'
+      }
     }
   ],
   css: {
@@ -28,5 +35,12 @@ module.exports = {
         ],
       },
     },
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('pug')
+      .test(/\.pug$/)
+      .use('pug-plain-loader')
+      .loader('pug-plain-loader')
   }
 };
