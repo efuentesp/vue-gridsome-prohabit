@@ -4,5 +4,5 @@
 @tailwind utilities;
 
 .tag-property-features {
-    @apply bg-gray-600 rounded px-2 h-6 text-white
+  @apply border border-gray-600 rounded px-2 py-1 text-gray-700;
 }

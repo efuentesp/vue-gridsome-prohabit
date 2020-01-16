@@ -1,10 +1,10 @@
-// This is where project configuration and plugin options are located. 
+// This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const tailwindcss = require("tailwindcss")
+const tailwindcss = require("tailwindcss");
 
 module.exports = {
   siteName: "Gridsome",
@@ -18,29 +18,32 @@ module.exports = {
         environment: process.env.CONTENTFUL_ENVIRONMENT,
         typename: "Contentful"
       }
-    },    {
-    use: '@gridsome/source-filesystem',
+    },
+    {
+      use: "@gridsome/source-filesystem",
       options: {
-        path: 'blog/**/*.md',
-        typeName: 'Post',
-        route: '/blog/:slug'
+        path: "blog/**/*.md",
+        typeName: "Post",
+        route: "/blog/:slug"
       }
     }
   ],
   css: {
     loaderOptions: {
       postcss: {
-        plugins: [
-          tailwindcss
-        ],
-      },
-    },
+        plugins: [tailwindcss]
+      }
+    }
   },
   chainWebpack: config => {
     config.module
-      .rule('pug')
+      .rule("pug")
       .test(/\.pug$/)
-      .use('pug-plain-loader')
-      .loader('pug-plain-loader')
+      .use("pug-plain-loader")
+      .loader("pug-plain-loader");
+
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+    svgRule.use("vue-svg-loader").loader("vue-svg-loader");
   }
 };
