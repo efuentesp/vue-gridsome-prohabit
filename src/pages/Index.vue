@@ -3,7 +3,7 @@ layout
   h1.text-3xl.font-bold.border-b Nuevos Desarrollos Habitacionales
   .flex.mt-8(v-for="{node} in $page.productos.edges" :key="node.id")
     div.pr-2(class="w-1/2")
-      img.border-8.border-solid.border-white.shadow-xl(src="http://prohabit.netlify.com/images/residencial-del-bosque/conjunto.652x480.jpg")
+      g-image.border-8.border-solid.border-white.shadow-xl(:src="node.main_image.file.url")
     div.pl-2(class="w-1/2")
       h2.text-2xl.font-bold.text-teal-500.underline {{node.title}}
       div.text-gray-700
@@ -43,6 +43,12 @@ layout
           id,
           title,
           date,
+          main_image {
+            title,
+            file {
+              url
+            }
+          },
           address,
           city,
           price,
