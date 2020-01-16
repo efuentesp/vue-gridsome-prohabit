@@ -1,39 +1,63 @@
 <template lang="pug">
 layout
   h1.text-3xl.font-bold.border-b Nuevos Desarrollos Habitacionales
-  .flex.mt-6
+  .flex.mt-8(v-for="{node} in $page.productos.edges" :key="node.id")
     div.pr-2(class="w-1/2")
       img.border-8.border-solid.border-white.shadow-xl(src="http://prohabit.netlify.com/images/residencial-del-bosque/conjunto.652x480.jpg")
     div.pl-2(class="w-1/2")
-      h2.text-2xl.font-bold.text-teal-500.underline Residencial del Bosque
+      h2.text-2xl.font-bold.text-teal-500.underline {{node.title}}
       div.text-gray-700
-        h3.mt-2 Carretera al Moral No 111, Col. El Moral
-        h3.font-bold.mb-3 San Martín Texmelucan, Puebla
-      span.rounded.bg-teal-500.text-xl.text-white.font-bold.p-2 Desde $384,000 hasta $414,000
+        h3.mt-2 {{node.address}}
+        h3.font-bold.mb-3 {{node.city}}
+      span.rounded.bg-teal-500.text-xl.text-white.font-bold.p-2 {{node.price}}
       .flex.mt-3
-        span.border.border-green-400.rounded.px-2.py-1.text-green-600.mr-2 Venta
-        span.border.border-blue-400.rounded.px-2.py-1.text-blue-500 Departamentos Nuevos
-      p.mt-3.text-justify Residencial Del Bosque está ubicado a 10 minutos del zócalo de San Martin Texmelucan, a solo unos metros del libramiento (Carretera Federal - Carretera al Verde). Residencial del Bosque cuenta con 60 departamentos distribuidos en 10 edificios de 3 niveles. Las plantas bajas cuentan con jardín y las plantas altas con espacio de azotea. Los departamentos cuentan con sala-comedor, cocina, baño y 2 recamaras. Residencial del Bosque cuenta área de estacionamiento común.
+        span.border.border-green-400.rounded.px-2.py-1.text-green-600.mr-2 {{node.category}}
+        span.border.border-blue-400.rounded.px-2.py-1.text-blue-500 {{node.type}}
+      p.mt-3.text-justify {{node.short_description.content[0].content[0].value}}
       .flex.justify-between.items-center.mt-3
         .flex
           span.tag-property-features.mr-2
             font-awesome(:icon="['fas', 'home']")
-            span.pl-1 55 m
+            span.pl-1 {{node.m2}} m
             sup 2
           span.tag-property-features.mr-2
             font-awesome(:icon="['fas', 'bed']")
-            span.pl-1 2
+            span.pl-1 {{node.bedrooms}}
           span.tag-property-features.mr-2
             font-awesome(:icon="['fas', 'bath']")
-            span.pl-2 2
+            span.pl-2 {{node.bathrooms}}
           span.tag-property-features.mr-2
             font-awesome(:icon="['fas', 'car']")
-            span.pl-2 1
+            span.pl-2 {{node.garages}}
         .flex.items-center
           button.text-xl.text-blue-500.underline
             font-awesome.text-blue-500(:icon="['fas', 'info-circle']")
             span.pl-1 Más información
 </template>
+
+<page-query>
+  query Productos {
+    productos: allContentfulProducto {
+      edges {
+        node {
+          id,
+          title,
+          date,
+          address,
+          city,
+          price,
+          category,
+          type,
+          short_description,
+          m2,
+          bedrooms,
+          bathrooms,
+          garages
+        }
+      }
+    }
+  }
+</page-query>
 
 <script>
 export default {
