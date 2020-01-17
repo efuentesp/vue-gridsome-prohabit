@@ -1,6 +1,6 @@
 <template lang="pug">
 section
-  article.flex.mt-8(v-for="{node} in $page.productos.edges" :key="node.id")
+  article.product-teaser.mt-8(v-for="{node} in $page.productos.edges" :key="node.id")
     div.pr-2(class="w-1/2")
       g-image.border-8.border-solid.border-white.shadow-xl(:src="node.main_image.file.url")
     div.pl-2(class="w-1/2")
@@ -29,7 +29,7 @@ section
             font-awesome(:icon="['fas', 'car']")
             span.pl-2 {{node.garages}}
         .flex.items-center
-          g-link.text-xl.text-blue-500.underline(:to="node.id")
+          g-link.text-xl.text-blue-500.underline(:to="`producto/${node.id}`")
             font-awesome.text-blue-500(:icon="['fas', 'info-circle']")
             span.pl-1 Más información
 </template>
@@ -37,6 +37,11 @@ section
 <script>
 export default {
   name: "ProductList",
-  props: ["queryList"]
+  props: ["queryList"],
+  methods: {
+    shortenText(text) {
+      return text.slice(0, 300) + "...";
+    }
+  }
 };
 </script>

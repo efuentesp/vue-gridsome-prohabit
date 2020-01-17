@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.product-teaser {
+  @apply flex border-8 border-solid border-white shadow;
+}
+
 .tag-property-features {
   @apply border border-gray-600 rounded px-2 py-1 text-gray-700;
 }
