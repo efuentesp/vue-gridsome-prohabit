@@ -10,6 +10,7 @@
     "@gridsome/source-contentful": "^0.5.2",
     "contentful": "^7.13.1",
     "gridsome": "^0.7.0",
+    "gridsome-source-storyblok": "^0.2.2",
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {

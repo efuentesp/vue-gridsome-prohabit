@@ -7,7 +7,7 @@
 const tailwindcss = require("tailwindcss");
 
 module.exports = {
-  siteName: "Gridsome",
+  siteName: "ProHabit",
   plugins: [
     {
       use: "@gridsome/source-contentful",
